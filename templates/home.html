@@ -1,0 +1,1942 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Blood Bank" />
+    <meta name="author" content="Intrella" />
+    <meta name="generator" content="Intrella" />
+    <title>Home</title>
+
+    <script
+      type="text/javascript"
+      src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"
+    ></script>
+    <script type="text/javascript">
+      function clicker() {
+        debugger;
+        var divToPrint = document.getElementById("tab");
+        var htmlToPrint =
+          "" +
+          '<style type="text/css">' +
+          "table th, table td {" +
+          "border:1px solid #000;" +
+          "padding:0.5em;" +
+          "}" +
+          "</style>";
+        htmlToPrint += divToPrint.outerHTML;
+        newWin = window.open("");
+        newWin.document.write(htmlToPrint);
+        newWin.print();
+        newWin.close();
+
+        /*
+	
+            var divContents = $("#ttdata11").html();
+			var htmlToPrint = '' +
+        '<style type="text/css">' +
+        'table th, table td {' +
+        'border:1px solid #000;' +
+        'padding:0.5em;' +
+        '}' +
+        '</style>';
+    htmlToPrint += divContents;
+            var printWindow = window.open('', '', 'height=800,width=800');
+            printWindow.document.write('<html><head><title>DIV Contents</title>');
+            printWindow.document.write('</head><body >');
+            printWindow.document.write(divContents);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.print();*/
+      }
+    </script>
+
+    <!-- Bootstrap core CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <style>
+      body {
+        font-size: 0.875rem;
+      }
+
+      .feather {
+        width: 16px;
+        height: 16px;
+        vertical-align: text-bottom;
+      }
+
+      .bg-cover {
+        background-size: cover !important;
+        background-repeat: no-repeat;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="d-flex flex-column min-vh-100 bg-cover"
+      style="background: #eef2f3"
+    >
+      <nav
+        class="navbar navbar-expand-lg navbar-light bg-primary bg-gradient shadow mb-3"
+      >
+        <div class="container-fluid">
+          <a class="navbar-brand text-light" href="#"
+            >TIME TABLES<span class="fs-6"></span
+          ></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto text-uppercase">
+              <li class="nav-item">
+                <a
+                  class="nav-link text-light active"
+                  aria-current="page"
+                  href="home"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-light" href="/">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container">
+        <form
+          class="form-group"
+          method="POST"
+          action="/generate"
+          enctype="multipart/form-data"
+        >
+          <div class="row">
+            <div class="col-md-12">
+              Select the subjects file :
+              <input type="file" id="subfile" class="form-control" name="subfile" accept=".txt" />
+            </div>
+          </div>
+          <br />
+          <div class="row">
+            <div class="col-md-12">
+              Select the faculties file :
+              <input type="file" id="facfile" class="form-control" name="facfile" accept=".txt" />
+            </div>
+          </div>
+          <br />
+          <!--<div class="row">
+            <div class="col-md-12">
+              Select the mapping file :
+              <input type="file" id="sffile" name="sffile" accept=".txt" />
+            </div>
+          </div>
+
+          <br />-->
+          <div class="row">
+            <div class="col-md-12">
+              Select Semester :
+              <select id="sem" name="sem" class="form-control">
+                <option>Select Semester</option>
+                <option value="1,3,5,7">Odd Semester</option>
+                <option value="2,4,6,8">Even Semester</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+              </select>
+            </div>
+          </div>
+          <br />
+          <div class="row">
+            <div class="col-md-12">
+              Select Section :
+              <select id="sec" name="sec" class="form-control">
+                <option>Select Section</option>
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+              </select>
+            </div>
+          </div>
+          <br />
+          <div class="col-md-4">
+            <input
+              type="submit"
+              class="btn btn-success form-control"
+              value="Generate Timetable"
+            />
+          </div>
+          <!--<div class="row justify-content-center">
+        <div class="col-md-4">    
+            <select class="form-select mb-3 shadow" id="sem" name="sem">
+			
+                <option>Select Time Table</option>
+				{% for item in semesters %}
+<option>{{item}}</option>
+{% endfor %}
+              </select>
+        </div>  
+ <div class="col-md-4">    
+            <select class="form-select mb-3 shadow" id="section" name="section">
+			
+                <option >Select Section</option>
+				{% for item in sections %}
+<option>{{item}}</option>
+{% endfor %}
+              </select>
+        </div> 	
+ 	
+    </div>-->
+        </form>
+        <br />
+        <div>
+          <div class="col-lg-4">
+            <input
+              type="button"
+              value="Print Timetable"
+              class="btn btn-info  form-control"
+              id="btnPrint"
+              onclick="clicker()"
+            />
+          </div>
+        </div>
+        {% if subjectslist is defined %}
+        <div
+          class="container bg-light p-3 shadow my-3 viiia timetable"
+          style="display: block"
+          id="ttdata1"
+        >
+          <div class="row justify-content-center mb-3 g-0">
+            <div class="row justify-content-center text-center">
+              <div
+                class="col-md-2 border border-secondary d-flex align-items-center justify-content-center"
+              >
+			  <img src="./static/assets/images/clogo.jpg" style="width: 200px;"></div>
+              <div
+                class="col-md-8 border border-secondary d-flex flex-column align-items-center justify-content-center g-0"
+              >
+                <span class="fs-5 fw-bold">
+                  JYOTHY INSTITUTE OF TECHNOLOGY
+                </span>
+                <span class="fs-6 fw-bold">
+                  DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING
+                </span>
+                <span class="fst-italic">
+                  Jyothy Institute Of Technology, Pipeline Rd, near Ravi Shankar
+                  Guruji Ashram, Thathaguni, Karnataka 560082
+                </span>
+                <span class="fst-italic">
+                  Accredited by NBA/NAAC with 'A' Grade
+                </span>
+                <div class="row g-0 w-100">
+                  <div class="col-md-3 text-center">
+                    <span class="fs-6 fw-bold"> Semester: 1</span>
+                  </div>
+                  <div class="col-md-3 text-center">
+                    <span class="fs-6 fw-bold"> Section: {{sec}} </span>
+                  </div>
+                  <div class="col-md-6 text-center">
+                    <span class="fs-6 fw-bold"></span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="col-md-2 border border-secondary d-flex align-items-center justify-content-center"
+              >
+			  
+			  <img src="./static/assets/images/vtulogo.jpg" style="width: 200px;">
+			  </div>
+            </div>
+          </div>
+          <div class="table-responsive mb-5" id="ttdata11">
+            <table
+              class="table table-bordered border border-dark text-center"
+              id="tab"
+            >
+              <thead>
+                <tr class="align-middle">
+                  <th>Time & Day</th>
+                  <th>9:15 - 10:10</th>
+                  <th>10:10 - 11:05</th>
+                  <th>11:05 - 11:20</th>
+                  <th>11:20 - 12:15</th>
+                  <th>12:15 - 1:10</th>
+                  <th>1:10 - 2:00</th>
+                  <th>2:00 - 2:50</th>
+                  <th>2:50 - 3:40</th>
+                  <th>3:40 - 4:30</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="align-middle">
+                  <td>Mon</td>
+                  <td colspan="1">{{subjectslist[0]}}</td>
+                  <td colspan="1">{{subjectslist[1]}}</td>
+                  <td
+                    rowspan="6"
+                    class="fw-bold"
+                    style="
+                      writing-mode: vertical-lr;
+                      transform: rotate(270deg);
+                      border: none;
+                    "
+                  >
+                    Tea Break
+                  </td>
+                  <td colspan="1">{{subjectslist[2]}}</td>
+                  <td colspan="1">{{subjectslist[3]}}</td>
+                  <td
+                    rowspan="5"
+                    class="fw-bold"
+                    style="
+                      writing-mode: vertical-lr;
+                      transform: rotate(270deg);
+                      border: none;
+                    "
+                  >
+                    Break<br />
+                    Lunch
+                  </td>
+                  <td colspan="3">{{subjectslist[4]}}</td>
+                </tr>
+                <tr class="align-middle">
+                  <td>Tue</td>
+                  <td colspan="1">{{subjectslist[5]}}</td>
+                  <td colspan="1">{{subjectslist[6]}}</td>
+                  <td colspan="1">{{subjectslist[7]}}</td>
+                  <td colspan="1">{{subjectslist[8]}}</td>
+                  <td colspan="3">{{subjectslist[9]}}</td>
+                </tr>
+                <tr class="align-middle">
+                  <td>Wed</td>
+
+                  <td colspan="1">{{subjectslist[10]}}</td>
+                  <td colspan="1">{{subjectslist[11]}}</td>
+                  <td colspan="1">{{subjectslist[12]}}</td>
+                  <td colspan="1">{{subjectslist[13]}}</td>
+                  <td colspan="1">{{subjectslist[14]}}</td>
+                  <td colspan="1">{{subjectslist[15]}}</td>
+                  <td colspan="1">{{subjectslist[16]}}</td>
+                </tr>
+                <tr class="align-middle">
+                  <td>Thu</td>
+                  <td colspan="1">{{subjectslist[17]}}</td>
+                  <td colspan="1">{{subjectslist[18]}}</td>
+                  <td colspan="1">{{subjectslist[19]}}</td>
+                  <td colspan="1">{{subjectslist[20]}}</td>
+                  <td colspan="3">{{subjectslist[21]}}</td>
+                </tr>
+                <tr class="align-middle">
+                  <td>Fri</td>
+                  <td colspan="1">{{subjectslist[22]}}</td>
+                  <td colspan="1">{{subjectslist[23]}}</td>
+                  <td colspan="1">{{subjectslist[24]}}</td>
+                  <td colspan="1">{{subjectslist[25]}}</td>
+                  <td colspan="3">{{subjectslist[26]}}</td>
+                </tr>
+                <tr class="align-middle">
+                  <td>Sat</td>
+                  <td colspan="1">{{subjectslist[27]}}</td>
+                  <td colspan="1">{{subjectslist[28]}}</td>
+                  <td colspan="1">{{subjectslist[29]}}</td>
+                  <td colspan="1">{{subjectslist[30]}}</td>
+                  <td colspan="1">{{subjectslist[31]}}</td>
+                  <td colspan="3"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+		  <table  class="table table-bordered border border-dark text-center">
+  <tr class="align-middle">
+                            <th colspan="2">Subject Code</th>
+                            <th colspan="5">Subject Name</th>
+                            <th colspan="4">Faculty Name</th>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[0][0]}}</td>
+                            <td colspan="5">{{secfac[0][1]}}</td>
+                            <td colspan="4">{{secfac[0][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[1][0]}}</td>
+                            <td colspan="5">{{secfac[1][1]}}</td>
+                            <td colspan="4">{{secfac[1][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[2][0]}}</td>
+                            <td colspan="5">{{secfac[2][1]}}</td>
+                            <td colspan="4">{{secfac[2][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[3][0]}}</td>
+                            <td colspan="5">{{secfac[3][1]}}</td>
+                            <td colspan="4">{{secfac[3][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[4][0]}}</td>
+                            <td colspan="5">{{secfac[4][1]}}</td>
+                            <td colspan="4">{{secfac[4][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[5][0]}}</td>
+                            <td colspan="5">{{secfac[5][1]}}</td>
+                            <td colspan="4">{{secfac[5][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[6][0]}}</td>
+                            <td colspan="5">{{secfac[6][1]}}</td>
+                            <td colspan="4">{{secfac[6][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[7][0]}}</td>
+                            <td colspan="5">{{secfac[7][1]}}</td>
+                            <td colspan="4">{{secfac[7][2]}}</td>
+                          </tr>
+</table>
+</div>
+
+
+
+        <div
+          class="container bg-light p-3 shadow my-3 viiia timetable"
+          style="display: block"
+          id="ttdata2"
+        >
+          <div class="row justify-content-center mb-3 g-0">
+            <div class="row justify-content-center text-center">
+              <div
+                class="col-md-2 border border-secondary d-flex align-items-center justify-content-center"
+              >
+			  <img src="./static/assets/images/clogo.jpg" style="width: 200px;"></div>
+              <div
+                class="col-md-8 border border-secondary d-flex flex-column align-items-center justify-content-center g-0"
+              >
+                <span class="fs-5 fw-bold">
+                  JYOTHY INSTITUTE OF TECHNOLOGY
+                </span>
+                <span class="fs-6 fw-bold">
+                  DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING
+                </span>
+                <span class="fst-italic">
+                  Jyothy Institute Of Technology, Pipeline Rd, near Ravi Shankar
+                  Guruji Ashram, Thathaguni, Karnataka 560082
+                </span>
+                <span class="fst-italic">
+                  Accredited by NBA/NAAC with 'A' Grade
+                </span>
+                <div class="row g-0 w-100">
+                  <div class="col-md-3 text-center">
+                    <span class="fs-6 fw-bold"> Semester: 2</span>
+                  </div>
+                  <div class="col-md-3 text-center">
+                    <span class="fs-6 fw-bold"> Section: {{sec}} </span>
+                  </div>
+                  <div class="col-md-6 text-center">
+                    <span class="fs-6 fw-bold"></span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="col-md-2 border border-secondary d-flex align-items-center justify-content-center"
+              >
+			  
+			  <img src="./static/assets/images/vtulogo.jpg" style="width: 200px;">
+			  </div>
+            </div>
+          </div>
+          <div class="table-responsive mb-5" id="ttdata11">
+            <table
+              class="table table-bordered border border-dark text-center"
+              id="tab"
+            >
+              <thead>
+                <tr class="align-middle">
+                  <th>Time & Day</th>
+                  <th>9:15 - 10:10</th>
+                  <th>10:10 - 11:05</th>
+                  <th>11:05 - 11:20</th>
+                  <th>11:20 - 12:15</th>
+                  <th>12:15 - 1:10</th>
+                  <th>1:10 - 2:00</th>
+                  <th>2:00 - 2:50</th>
+                  <th>2:50 - 3:40</th>
+                  <th>3:40 - 4:30</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="align-middle">
+                  <td>Mon</td>
+                  <td colspan="1">{{subjectslist[32]}}</td>
+                  <td colspan="1">{{subjectslist[33]}}</td>
+                  <td
+                    rowspan="6"
+                    class="fw-bold"
+                    style="
+                      writing-mode: vertical-lr;
+                      transform: rotate(270deg);
+                      border: none;
+                    "
+                  >
+                    Tea Break
+                  </td>
+                  <td colspan="1">{{subjectslist[34]}}</td>
+                  <td colspan="1">{{subjectslist[35]}}</td>
+                  <td
+                    rowspan="5"
+                    class="fw-bold"
+                    style="
+                      writing-mode: vertical-lr;
+                      transform: rotate(270deg);
+                      border: none;
+                    "
+                  >
+                    Break<br />
+                    Lunch
+                  </td>
+                  <td colspan="3">{{subjectslist[36]}}</td>
+                </tr>
+                <tr class="align-middle">
+                  <td>Tue</td>
+                  <td colspan="1">{{subjectslist[37]}}</td>
+                  <td colspan="1">{{subjectslist[38]}}</td>
+                  <td colspan="1">{{subjectslist[39]}}</td>
+                  <td colspan="1">{{subjectslist[40]}}</td>
+                  <td colspan="3">{{subjectslist[41]}}</td>
+                </tr>
+                <tr class="align-middle">
+                  <td>Wed</td>
+
+                  <td colspan="1">{{subjectslist[42]}}</td>
+                  <td colspan="1">{{subjectslist[43]}}</td>
+                  <td colspan="1">{{subjectslist[44]}}</td>
+                  <td colspan="1">{{subjectslist[45]}}</td>
+                  <td colspan="1">{{subjectslist[46]}}</td>
+                  <td colspan="1">{{subjectslist[47]}}</td>
+                  <td colspan="1">{{subjectslist[48]}}</td>
+                </tr>
+                <tr class="align-middle">
+                  <td>Thu</td>
+                  <td colspan="1">{{subjectslist[49]}}</td>
+                  <td colspan="1">{{subjectslist[50]}}</td>
+                  <td colspan="1">{{subjectslist[51]}}</td>
+                  <td colspan="1">{{subjectslist[52]}}</td>
+                  <td colspan="3">{{subjectslist[53]}}</td>
+                </tr>
+                <tr class="align-middle">
+                  <td>Fri</td>
+                  <td colspan="1">{{subjectslist[54]}}</td>
+                  <td colspan="1">{{subjectslist[55]}}</td>
+                  <td colspan="1">{{subjectslist[56]}}</td>
+                  <td colspan="1">{{subjectslist[57]}}</td>
+                  <td colspan="3">{{subjectslist[58]}}</td>
+                </tr>
+                <tr class="align-middle">
+                  <td>Sat</td>
+                  <td colspan="1">{{subjectslist[59]}}</td>
+                  <td colspan="1">{{subjectslist[60]}}</td>
+                  <td colspan="1">{{subjectslist[61]}}</td>
+                  <td colspan="1">{{subjectslist[62]}}</td>
+                  <td colspan="1">{{subjectslist[63]}}</td>
+                  <td colspan="3"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+		  <table  class="table table-bordered border border-dark text-center">
+  <tr class="align-middle">
+                            <th colspan="2">Subject Code</th>
+                            <th colspan="5">Subject Name</th>
+                            <th colspan="4">Faculty Name</th>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[8][0]}}</td>
+                            <td colspan="5">{{secfac[8][1]}}</td>
+                            <td colspan="4">{{secfac[8][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[9][0]}}</td>
+                            <td colspan="5">{{secfac[9][1]}}</td>
+                            <td colspan="4">{{secfac[9][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[10][0]}}</td>
+                            <td colspan="5">{{secfac[10][1]}}</td>
+                            <td colspan="4">{{secfac[10][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[11][0]}}</td>
+                            <td colspan="5">{{secfac[12][1]}}</td>
+                            <td colspan="4">{{secfac[13][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[14][0]}}</td>
+                            <td colspan="5">{{secfac[14][1]}}</td>
+                            <td colspan="4">{{secfac[14][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[15][0]}}</td>
+                            <td colspan="5">{{secfac[15][1]}}</td>
+                            <td colspan="4">{{secfac[15][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[16][0]}}</td>
+                            <td colspan="5">{{secfac[16][1]}}</td>
+                            <td colspan="4">{{secfac[16][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[7][0]}}</td>
+                            <td colspan="5">{{secfac[7][1]}}</td>
+                            <td colspan="4">{{secfac[7][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[8][0]}}</td>
+                            <td colspan="5">{{secfac[8][1]}}</td>
+                            <td colspan="4">{{secfac[8][2]}}</td>
+                          </tr>
+</table>
+</div>
+    
+
+<div
+          class="container bg-light p-3 shadow my-3 viiia timetable"
+          style="display: block"
+          id="ttdata3"
+        >
+          <div class="row justify-content-center mb-3 g-0">
+            <div class="row justify-content-center text-center">
+              <div
+                class="col-md-2 border border-secondary d-flex align-items-center justify-content-center"
+              >
+			  <img src="./static/assets/images/clogo.jpg" style="width: 200px;"></div>
+              <div
+                class="col-md-8 border border-secondary d-flex flex-column align-items-center justify-content-center g-0"
+              >
+                <span class="fs-5 fw-bold">
+                  JYOTHY INSTITUTE OF TECHNOLOGY
+                </span>
+                <span class="fs-6 fw-bold">
+                  DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING
+                </span>
+                <span class="fst-italic">
+                  Jyothy Institute Of Technology, Pipeline Rd, near Ravi Shankar
+                  Guruji Ashram, Thathaguni, Karnataka 560082
+                </span>
+                <span class="fst-italic">
+                  Accredited by NBA/NAAC with 'A' Grade
+                </span>
+                <div class="row g-0 w-100">
+                  <div class="col-md-3 text-center">
+                    <span class="fs-6 fw-bold"> Semester: 3</span>
+                  </div>
+                  <div class="col-md-3 text-center">
+                    <span class="fs-6 fw-bold"> Section: {{sec}} </span>
+                  </div>
+                  <div class="col-md-6 text-center">
+                    <span class="fs-6 fw-bold"></span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="col-md-2 border border-secondary d-flex align-items-center justify-content-center"
+              >
+			  
+			  <img src="./static/assets/images/vtulogo.jpg" style="width: 200px;">
+			  </div>
+            </div>
+          </div>
+          <div class="table-responsive mb-5" id="ttdata11">
+            <table
+              class="table table-bordered border border-dark text-center"
+              id="tab"
+            >
+              <thead>
+                <tr class="align-middle">
+                  <th>Time & Day</th>
+                  <th>9:15 - 10:10</th>
+                  <th>10:10 - 11:05</th>
+                  <th>11:05 - 11:20</th>
+                  <th>11:20 - 12:15</th>
+                  <th>12:15 - 1:10</th>
+                  <th>1:10 - 2:00</th>
+                  <th>2:00 - 2:50</th>
+                  <th>2:50 - 3:40</th>
+                  <th>3:40 - 4:30</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="align-middle">
+                  <td>Mon</td>
+                  <td colspan="1">{{subjectslist[64]}}</td>
+                  <td colspan="1">{{subjectslist[65]}}</td>
+                  <td
+                    rowspan="6"
+                    class="fw-bold"
+                    style="
+                      writing-mode: vertical-lr;
+                      transform: rotate(270deg);
+                      border: none;
+                    "
+                  >
+                    Tea Break
+                  </td>
+                  <td colspan="1">{{subjectslist[66]}}</td>
+                  <td colspan="1">{{subjectslist[67]}}</td>
+                  <td
+                    rowspan="5"
+                    class="fw-bold"
+                    style="
+                      writing-mode: vertical-lr;
+                      transform: rotate(270deg);
+                      border: none;
+                    "
+                  >
+                    Break<br />
+                    Lunch
+                  </td>
+                  <td colspan="3">{{subjectslist[68]}}</td>
+                </tr>
+                <tr class="align-middle">
+                  <td>Tue</td>
+                  <td colspan="1">{{subjectslist[69]}}</td>
+                  <td colspan="1">{{subjectslist[70]}}</td>
+                  <td colspan="1">{{subjectslist[71]}}</td>
+                  <td colspan="1">{{subjectslist[72]}}</td>
+                  <td colspan="3">{{subjectslist[73]}}</td>
+                </tr>
+                <tr class="align-middle">
+                  <td>Wed</td>
+
+                  <td colspan="1">{{subjectslist[74]}}</td>
+                  <td colspan="1">{{subjectslist[75]}}</td>
+                  <td colspan="1">{{subjectslist[76]}}</td>
+                  <td colspan="1">{{subjectslist[77]}}</td>
+                  <td colspan="1">{{subjectslist[78]}}</td>
+                  <td colspan="1">{{subjectslist[79]}}</td>
+                  <td colspan="1">{{subjectslist[80]}}</td>
+                </tr>
+                <tr class="align-middle">
+                  <td>Thu</td>
+                  <td colspan="1">{{subjectslist[81]}}</td>
+                  <td colspan="1">{{subjectslist[82]}}</td>
+                  <td colspan="1">{{subjectslist[83]}}</td>
+                  <td colspan="1">{{subjectslist[84]}}</td>
+                  <td colspan="3">{{subjectslist[85]}}</td>
+                </tr>
+                <tr class="align-middle">
+                  <td>Fri</td>
+                  <td colspan="1">{{subjectslist[86]}}</td>
+                  <td colspan="1">{{subjectslist[87]}}</td>
+                  <td colspan="1">{{subjectslist[88]}}</td>
+                  <td colspan="1">{{subjectslist[89]}}</td>
+                  <td colspan="3">{{subjectslist[90]}}</td>
+                </tr>
+                <tr class="align-middle">
+                  <td>Sat</td>
+                  <td colspan="1">{{subjectslist[91]}}</td>
+                  <td colspan="1">{{subjectslist[92]}}</td>
+                  <td colspan="1">{{subjectslist[93]}}</td>
+                  <td colspan="1">{{subjectslist[94]}}</td>
+                  <td colspan="1">{{subjectslist[95]}}</td>
+                  <td colspan="3"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+		  <table  class="table table-bordered border border-dark text-center">
+  <tr class="align-middle">
+                            <th colspan="2">Subject Code</th>
+                            <th colspan="5">Subject Name</th>
+                            <th colspan="4">Faculty Name</th>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[17][0]}}</td>
+                            <td colspan="5">{{secfac[17][1]}}</td>
+                            <td colspan="4">{{secfac[17][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[18][0]}}</td>
+                            <td colspan="5">{{secfac[18][1]}}</td>
+                            <td colspan="4">{{secfac[18][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[19][0]}}</td>
+                            <td colspan="5">{{secfac[19][1]}}</td>
+                            <td colspan="4">{{secfac[19][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[20][0]}}</td>
+                            <td colspan="5">{{secfac[20][1]}}</td>
+                            <td colspan="4">{{secfac[20][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[21][0]}}</td>
+                            <td colspan="5">{{secfac[21][1]}}</td>
+                            <td colspan="4">{{secfac[21][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[22][0]}}</td>
+                            <td colspan="5">{{secfac[22][1]}}</td>
+                            <td colspan="4">{{secfac[22][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[23][0]}}</td>
+                            <td colspan="5">{{secfac[23][1]}}</td>
+                            <td colspan="4">{{secfac[23][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[24][0]}}</td>
+                            <td colspan="5">{{secfac[24][1]}}</td>
+                            <td colspan="4">{{secfac[24][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[25][0]}}</td>
+                            <td colspan="5">{{secfac[25][1]}}</td>
+                            <td colspan="4">{{secfac[25][2]}}</td>
+                          </tr>
+</table>
+</div>
+ 
+    <div
+          class="container bg-light p-3 shadow my-3 viiia timetable"
+          style="display: block"
+          id="ttdata4"
+        >
+          <div class="row justify-content-center mb-3 g-0">
+            <div class="row justify-content-center text-center">
+              <div
+                class="col-md-2 border border-secondary d-flex align-items-center justify-content-center"
+              >
+			  
+			  <img src="./static/assets/images/clogo.jpg" style="width: 200px;">
+			  </div>
+              <div
+                class="col-md-8 border border-secondary d-flex flex-column align-items-center justify-content-center g-0"
+              >
+                <span class="fs-5 fw-bold">
+                  JYOTHY INSTITUTE OF TECHNOLOGY
+                </span>
+                <span class="fs-6 fw-bold">
+                  DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING
+                </span>
+                <span class="fst-italic">
+                  Jyothy Institute Of Technology, Pipeline Rd, near Ravi Shankar
+                  Guruji Ashram, Thathaguni, Karnataka 560082
+                </span>
+                <span class="fst-italic">
+                  Accredited by NBA/NAAC with 'A' Grade
+                </span>
+                <div class="row g-0 w-100">
+                  <div class="col-md-3 text-center">
+                    <span class="fs-6 fw-bold"> Semester: 4</span>
+                  </div>
+                  <div class="col-md-3 text-center">
+                    <span class="fs-6 fw-bold"> Section: {{sec}} </span>
+                  </div>
+                  <div class="col-md-6 text-center">
+                    <span class="fs-6 fw-bold"></span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="col-md-2 border border-secondary d-flex align-items-center justify-content-center"
+              >
+			  
+			  <img src="./static/assets/images/vtulogo.jpg" style="width: 200px;"/>
+			  </div>
+            </div>
+          </div>
+          <div class="table-responsive mb-5" id="ttdata11">
+            <table
+              class="table table-bordered border border-dark text-center"
+              id="tab"
+            >
+              <thead>
+                <tr class="align-middle">
+                  <th>Time & Day</th>
+                  <th>9:15 - 10:10</th>
+                  <th>10:10 - 11:05</th>
+                  <th>11:05 - 11:20</th>
+                  <th>11:20 - 12:15</th>
+                  <th>12:15 - 1:10</th>
+                  <th>1:10 - 2:00</th>
+                  <th>2:00 - 2:50</th>
+                  <th>2:50 - 3:40</th>
+                  <th>3:40 - 4:30</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="align-middle">
+                  <td>Mon</td>
+                  <td colspan="1">{{subjectslist[96]}}</td>
+                  <td colspan="1">{{subjectslist[97]}}</td>
+                  <td
+                    rowspan="6"
+                    class="fw-bold"
+                    style="
+                      writing-mode: vertical-lr;
+                      transform: rotate(270deg);
+                      border: none;
+                    "
+                  >
+                    Tea Break
+                  </td>
+                  <td colspan="1">{{subjectslist[98]}}</td>
+                  <td colspan="1">{{subjectslist[99]}}</td>
+                  <td
+                    rowspan="5"
+                    class="fw-bold"
+                    style="
+                      writing-mode: vertical-lr;
+                      transform: rotate(270deg);
+                      border: none;
+                    "
+                  >
+                    Break<br />
+                    Lunch
+                  </td>
+                  <td colspan="3">{{subjectslist[100]}}</td>
+                </tr>
+                <tr class="align-middle">
+                  <td>Tue</td>
+                  <td colspan="1">{{subjectslist[101]}}</td>
+                  <td colspan="1">{{subjectslist[102]}}</td>
+                  <td colspan="1">{{subjectslist[103]}}</td>
+                  <td colspan="1">{{subjectslist[104]}}</td>
+                  <td colspan="3">{{subjectslist[105]}}</td>
+                </tr>
+                <tr class="align-middle">
+                  <td>Wed</td>
+
+                  <td colspan="1">{{subjectslist[106]}}</td>
+                  <td colspan="1">{{subjectslist[107]}}</td>
+                  <td colspan="1">{{subjectslist[108]}}</td>
+                  <td colspan="1">{{subjectslist[109]}}</td>
+                  <td colspan="1">{{subjectslist[110]}}</td>
+                  <td colspan="1">{{subjectslist[111]}}</td>
+                  <td colspan="1">{{subjectslist[112]}}</td>
+                </tr>
+                <tr class="align-middle">
+                  <td>Thu</td>
+                  <td colspan="1">{{subjectslist[113]}}</td>
+                  <td colspan="1">{{subjectslist[114]}}</td>
+                  <td colspan="1">{{subjectslist[115]}}</td>
+                  <td colspan="1">{{subjectslist[116]}}</td>
+                  <td colspan="3">{{subjectslist[117]}}</td>
+                </tr>
+                <tr class="align-middle">
+                  <td>Fri</td>
+                  <td colspan="1">{{subjectslist[118]}}</td>
+                  <td colspan="1">{{subjectslist[119]}}</td>
+                  <td colspan="1">{{subjectslist[120]}}</td>
+                  <td colspan="1">{{subjectslist[121]}}</td>
+                  <td colspan="3">{{subjectslist[122]}}</td>
+                </tr>
+                <tr class="align-middle">
+                  <td>Sat</td>
+                  <td colspan="1">{{subjectslist[123]}}</td>
+                  <td colspan="1">{{subjectslist[124]}}</td>
+                  <td colspan="1">{{subjectslist[125]}}</td>
+                  <td colspan="1">{{subjectslist[126]}}</td>
+                  <td colspan="1">{{subjectslist[127]}}</td>
+                  <td colspan="3"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+		  <table  class="table table-bordered border border-dark text-center">
+  <tr class="align-middle">
+                            <th colspan="2">Subject Code</th>
+                            <th colspan="5">Subject Name</th>
+                            <th colspan="4">Faculty Name</th>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[26][0]}}</td>
+                            <td colspan="5">{{secfac[26][1]}}</td>
+                            <td colspan="4">{{secfac[26][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[27][0]}}</td>
+                            <td colspan="5">{{secfac[27][1]}}</td>
+                            <td colspan="4">{{secfac[27][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[28][0]}}</td>
+                            <td colspan="5">{{secfac[28][1]}}</td>
+                            <td colspan="4">{{secfac[28][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[29][0]}}</td>
+                            <td colspan="5">{{secfac[29][1]}}</td>
+                            <td colspan="4">{{secfac[29][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[30][0]}}</td>
+                            <td colspan="5">{{secfac[30][1]}}</td>
+                            <td colspan="4">{{secfac[30][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[31][0]}}</td>
+                            <td colspan="5">{{secfac[31][1]}}</td>
+                            <td colspan="4">{{secfac[31][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[32][0]}}</td>
+                            <td colspan="5">{{secfac[32][1]}}</td>
+                            <td colspan="4">{{secfac[32][2]}}</td>
+                          </tr>
+</table>
+</div>
+
+
+
+<div
+          class="container bg-light p-3 shadow my-3 viiia timetable"
+          style="display: block"
+          id="ttdata5"
+        >
+          <div class="row justify-content-center mb-3 g-0">
+            <div class="row justify-content-center text-center">
+              <div
+                class="col-md-2 border border-secondary d-flex align-items-center justify-content-center"
+              >
+			  <img src="./static/assets/images/clogo.jpg" style="width: 200px;"></div>
+              <div
+                class="col-md-8 border border-secondary d-flex flex-column align-items-center justify-content-center g-0"
+              >
+                <span class="fs-5 fw-bold">
+                  JYOTHY INSTITUTE OF TECHNOLOGY
+                </span>
+                <span class="fs-6 fw-bold">
+                  DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING
+                </span>
+                <span class="fst-italic">
+                  Jyothy Institute Of Technology, Pipeline Rd, near Ravi Shankar
+                  Guruji Ashram, Thathaguni, Karnataka 560082
+                </span>
+                <span class="fst-italic">
+                  Accredited by NBA/NAAC with 'A' Grade
+                </span>
+                <div class="row g-0 w-100">
+                  <div class="col-md-3 text-center">
+                    <span class="fs-6 fw-bold"> Semester: 5</span>
+                  </div>
+                  <div class="col-md-3 text-center">
+                    <span class="fs-6 fw-bold"> Section: {{sec}} </span>
+                  </div>
+                  <div class="col-md-6 text-center">
+                    <span class="fs-6 fw-bold"></span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="col-md-2 border border-secondary d-flex align-items-center justify-content-center"
+              >
+			  
+			  <img src="./static/assets/images/vtulogo.jpg" style="width: 200px;">
+			  </div>
+            </div>
+          </div>
+          <div class="table-responsive mb-5" id="ttdata11">
+            <table
+              class="table table-bordered border border-dark text-center"
+              id="tab"
+            >
+              <thead>
+                <tr class="align-middle">
+                  <th>Time & Day</th>
+                  <th>9:15 - 10:10</th>
+                  <th>10:10 - 11:05</th>
+                  <th>11:05 - 11:20</th>
+                  <th>11:20 - 12:15</th>
+                  <th>12:15 - 1:10</th>
+                  <th>1:10 - 2:00</th>
+                  <th>2:00 - 2:50</th>
+                  <th>2:50 - 3:40</th>
+                  <th>3:40 - 4:30</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="align-middle">
+                  <td>Mon</td>
+                  <td colspan="1">{{subjectslist[128]}}</td>
+                  <td colspan="1">{{subjectslist[129]}}</td>
+                  <td
+                    rowspan="6"
+                    class="fw-bold"
+                    style="
+                      writing-mode: vertical-lr;
+                      transform: rotate(270deg);
+                      border: none;
+                    "
+                  >
+                    Tea Break
+                  </td>
+                  <td colspan="1">{{subjectslist[130]}}</td>
+                  <td colspan="1">{{subjectslist[131]}}</td>
+                  <td
+                    rowspan="5"
+                    class="fw-bold"
+                    style="
+                      writing-mode: vertical-lr;
+                      transform: rotate(270deg);
+                      border: none;
+                    "
+                  >
+                    Break<br />
+                    Lunch
+                  </td>
+                  <td colspan="3">{{subjectslist[132]}}</td>
+                </tr>
+                <tr class="align-middle">
+                  <td>Tue</td>
+                  <td colspan="1">{{subjectslist[133]}}</td>
+                  <td colspan="1">{{subjectslist[134]}}</td>
+                  <td colspan="1">{{subjectslist[135]}}</td>
+                  <td colspan="1">{{subjectslist[136]}}</td>
+                  <td colspan="3">{{subjectslist[137]}}</td>
+                </tr>
+                <tr class="align-middle">
+                  <td>Wed</td>
+
+                  <td colspan="1">{{subjectslist[138]}}</td>
+                  <td colspan="1">{{subjectslist[139]}}</td>
+                  <td colspan="1">{{subjectslist[140]}}</td>
+                  <td colspan="1">{{subjectslist[141]}}</td>
+                  <td colspan="1">{{subjectslist[142]}}</td>
+                  <td colspan="1">{{subjectslist[143]}}</td>
+                  <td colspan="1">{{subjectslist[144]}}</td>
+                </tr>
+                <tr class="align-middle">
+                  <td>Thu</td>
+                  <td colspan="1">{{subjectslist[145]}}</td>
+                  <td colspan="1">{{subjectslist[146]}}</td>
+                  <td colspan="1">{{subjectslist[147]}}</td>
+                  <td colspan="1">{{subjectslist[148]}}</td>
+                  <td colspan="3">{{subjectslist[149]}}</td>
+                </tr>
+                <tr class="align-middle">
+                  <td>Fri</td>
+                  <td colspan="1">{{subjectslist[150]}}</td>
+                  <td colspan="1">{{subjectslist[151]}}</td>
+                  <td colspan="1">{{subjectslist[152]}}</td>
+                  <td colspan="1">{{subjectslist[153]}}</td>
+                  <td colspan="3">{{subjectslist[154]}}</td>
+                </tr>
+                <tr class="align-middle">
+                  <td>Sat</td>
+                  <td colspan="1">{{subjectslist[155]}}</td>
+                  <td colspan="1">{{subjectslist[156]}}</td>
+                  <td colspan="1">{{subjectslist[157]}}</td>
+                  <td colspan="1">{{subjectslist[158]}}</td>
+                  <td colspan="1">{{subjectslist[159]}}</td>
+                  <td colspan="3"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+		  <table  class="table table-bordered border border-dark text-center">
+  <tr class="align-middle">
+                            <th colspan="2">Subject Code</th>
+                            <th colspan="5">Subject Name</th>
+                            <th colspan="4">Faculty Name</th>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[33][0]}}</td>
+                            <td colspan="5">{{secfac[33][1]}}</td>
+                            <td colspan="4">{{secfac[33][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[34][0]}}</td>
+                            <td colspan="5">{{secfac[34][1]}}</td>
+                            <td colspan="4">{{secfac[34][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[35][0]}}</td>
+                            <td colspan="5">{{secfac[35][1]}}</td>
+                            <td colspan="4">{{secfac[35][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[36][0]}}</td>
+                            <td colspan="5">{{secfac[36][1]}}</td>
+                            <td colspan="4">{{secfac[36][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[37][0]}}</td>
+                            <td colspan="5">{{secfac[37][1]}}</td>
+                            <td colspan="4">{{secfac[37][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[38][0]}}</td>
+                            <td colspan="5">{{secfac[38][1]}}</td>
+                            <td colspan="4">{{secfac[38][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[39][0]}}</td>
+                            <td colspan="5">{{secfac[39][1]}}</td>
+                            <td colspan="4">{{secfac[39][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[40][0]}}</td>
+                            <td colspan="5">{{secfac[40][1]}}</td>
+                            <td colspan="4">{{secfac[40][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[41][0]}}</td>
+                            <td colspan="5">{{secfac[41][1]}}</td>
+                            <td colspan="4">{{secfac[41][2]}}</td>
+                          </tr>
+</table>
+</div>
+
+    <div
+          class="container bg-light p-3 shadow my-3 viiia timetable"
+          style="display: block"
+          id="ttdata6"
+        >
+          <div class="row justify-content-center mb-3 g-0">
+            <div class="row justify-content-center text-center">
+              <div
+                class="col-md-2 border border-secondary d-flex align-items-center justify-content-center"
+              >
+			  
+			  <img src="./static/assets/images/clogo.jpg" style="width: 200px;">
+			  </div>
+              <div
+                class="col-md-8 border border-secondary d-flex flex-column align-items-center justify-content-center g-0"
+              >
+                <span class="fs-5 fw-bold">
+                  JYOTHY INSTITUTE OF TECHNOLOGY
+                </span>
+                <span class="fs-6 fw-bold">
+                  DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING
+                </span>
+                <span class="fst-italic">
+                  Jyothy Institute Of Technology, Pipeline Rd, near Ravi Shankar
+                  Guruji Ashram, Thathaguni, Karnataka 560082
+                </span>
+                <span class="fst-italic">
+                  Accredited by NBA/NAAC with 'A' Grade
+                </span>
+                <div class="row g-0 w-100">
+                  <div class="col-md-3 text-center">
+                    <span class="fs-6 fw-bold"> Semester: 6</span>
+                  </div>
+                  <div class="col-md-3 text-center">
+                    <span class="fs-6 fw-bold"> Section: {{sec}} </span>
+                  </div>
+                  <div class="col-md-6 text-center">
+                    <span class="fs-6 fw-bold"></span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="col-md-2 border border-secondary d-flex align-items-center justify-content-center"
+              >
+			  
+			  <img src="./static/assets/images/vtulogo.jpg" style="width: 200px;">
+			  </div>
+            </div>
+          </div>
+          <div class="table-responsive mb-5" id="ttdata11">
+            <table
+              class="table table-bordered border border-dark text-center"
+              id="tab"
+            >
+              <thead>
+                <tr class="align-middle">
+                  <th>Time & Day</th>
+                  <th>9:15 - 10:10</th>
+                  <th>10:10 - 11:05</th>
+                  <th>11:05 - 11:20</th>
+                  <th>11:20 - 12:15</th>
+                  <th>12:15 - 1:10</th>
+                  <th>1:10 - 2:00</th>
+                  <th>2:00 - 2:50</th>
+                  <th>2:50 - 3:40</th>
+                  <th>3:40 - 4:30</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="align-middle">
+                  <td>Mon</td>
+                  <td colspan="1">{{subjectslist[160]}}</td>
+                  <td colspan="1">{{subjectslist[161]}}</td>
+                  <td
+                    rowspan="6"
+                    class="fw-bold"
+                    style="
+                      writing-mode: vertical-lr;
+                      transform: rotate(270deg);
+                      border: none;
+                    "
+                  >
+                    Tea Break
+                  </td>
+                  <td colspan="1">{{subjectslist[162]}}</td>
+                  <td colspan="1">{{subjectslist[163]}}</td>
+                  <td
+                    rowspan="5"
+                    class="fw-bold"
+                    style="
+                      writing-mode: vertical-lr;
+                      transform: rotate(270deg);
+                      border: none;
+                    "
+                  >
+                    Break<br />
+                    Lunch
+                  </td>
+                  <td colspan="3">{{subjectslist[164]}}</td>
+                </tr>
+                <tr class="align-middle">
+                  <td>Tue</td>
+                  <td colspan="1">{{subjectslist[165]}}</td>
+                  <td colspan="1">{{subjectslist[166]}}</td>
+                  <td colspan="1">{{subjectslist[167]}}</td>
+                  <td colspan="1">{{subjectslist[168]}}</td>
+                  <td colspan="3">{{subjectslist[169]}}</td>
+                </tr>
+                <tr class="align-middle">
+                  <td>Wed</td>
+
+                  <td colspan="1">{{subjectslist[170]}}</td>
+                  <td colspan="1">{{subjectslist[171]}}</td>
+                  <td colspan="1">{{subjectslist[172]}}</td>
+                  <td colspan="1">{{subjectslist[173]}}</td>
+                  <td colspan="1">{{subjectslist[174]}}</td>
+                  <td colspan="1">{{subjectslist[175]}}</td>
+                  <td colspan="1">{{subjectslist[180]}}</td>
+                </tr>
+                <tr class="align-middle">
+                  <td>Thu</td>
+                  <td colspan="1">{{subjectslist[181]}}</td>
+                  <td colspan="1">{{subjectslist[182]}}</td>
+                  <td colspan="1">{{subjectslist[183]}}</td>
+                  <td colspan="1">{{subjectslist[184]}}</td>
+                  <td colspan="3">{{subjectslist[185]}}</td>
+                </tr>
+                <tr class="align-middle">
+                  <td>Fri</td>
+                  <td colspan="1">{{subjectslist[186]}}</td>
+                  <td colspan="1">{{subjectslist[187]}}</td>
+                  <td colspan="1">{{subjectslist[188]}}</td>
+                  <td colspan="1">{{subjectslist[189]}}</td>
+                  <td colspan="3">{{subjectslist[190]}}</td>
+                </tr>
+                <tr class="align-middle">
+                  <td>Sat</td>
+                  <td colspan="1">{{subjectslist[191]}}</td>
+                  <td colspan="1">{{subjectslist[192]}}</td>
+                  <td colspan="1">{{subjectslist[193]}}</td>
+                  <td colspan="1">{{subjectslist[194]}}</td>
+                  <td colspan="1">{{subjectslist[195]}}</td>
+                  <td colspan="3"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+		  <table  class="table table-bordered border border-dark text-center">
+  <tr class="align-middle">
+                            <th colspan="2">Subject Code</th>
+                            <th colspan="5">Subject Name</th>
+                            <th colspan="4">Faculty Name</th>
+                          </tr>
+                          <tr class="align-middle">
+                                        <td colspan="2">{{secfac[42][0]}}</td>
+                                        <td colspan="5">{{secfac[42][1]}}</td>
+                                        <td colspan="4">{{secfac[42][2]}}</td>
+                                      </tr>
+                          <tr class="align-middle">
+                                        <td colspan="2">{{secfac[43][0]}}</td>
+                                        <td colspan="5">{{secfac[43][1]}}</td>
+                                        <td colspan="4">{{secfac[43][2]}}</td>
+                                      </tr>
+                          <tr class="align-middle">
+                                        <td colspan="2">{{secfac[44][0]}}</td>
+                                        <td colspan="5">{{secfac[44][1]}}</td>
+                                        <td colspan="4">{{secfac[44][2]}}</td>
+                                      </tr>
+                          <tr class="align-middle">
+                                        <td colspan="2">{{secfac[45][0]}}</td>
+                                        <td colspan="5">{{secfac[45][1]}}</td>
+                                        <td colspan="4">{{secfac[45][2]}}</td>
+                                      </tr>
+                          <tr class="align-middle">
+                                        <td colspan="2">{{secfac[46][0]}}</td>
+                                        <td colspan="5">{{secfac[46][1]}}</td>
+                                        <td colspan="4">{{secfac[46][2]}}</td>
+                                      </tr>
+                          <tr class="align-middle">
+                                        <td colspan="2">{{secfac[47][0]}}</td>
+                                        <td colspan="5">{{secfac[47][1]}}</td>
+                                        <td colspan="4">{{secfac[47][2]}}</td>
+                                      </tr>
+                          <tr class="align-middle">
+                                        <td colspan="2">{{secfac[48][0]}}</td>
+                                        <td colspan="5">{{secfac[48][1]}}</td>
+                                        <td colspan="4">{{secfac[48][2]}}</td>
+                                      </tr>
+                          <tr class="align-middle">
+                                        <td colspan="2">{{secfac[49][0]}}</td>
+                                        <td colspan="5">{{secfac[49][1]}}</td>
+                                        <td colspan="4">{{secfac[49][2]}}</td>
+                                      </tr>
+                          <tr class="align-middle">
+                                        <td colspan="2">{{secfac[50][0]}}</td>
+                                        <td colspan="5">{{secfac[50][1]}}</td>
+                                        <td colspan="4">{{secfac[50][2]}}</td>
+                                      </tr>
+</table>
+</div>
+ 
+
+
+<div
+class="container bg-light p-3 shadow my-3 viiia timetable"
+style="display: block"
+id="ttdata7"
+>
+<div class="row justify-content-center mb-3 g-0">
+  <div class="row justify-content-center text-center">
+    <div
+      class="col-md-2 border border-secondary d-flex align-items-center justify-content-center"
+    >
+
+<img src="./static/assets/images/clogo.jpg" style="width: 200px;">
+</div>
+    <div
+      class="col-md-8 border border-secondary d-flex flex-column align-items-center justify-content-center g-0"
+    >
+      <span class="fs-5 fw-bold">
+        JYOTHY INSTITUTE OF TECHNOLOGY
+      </span>
+      <span class="fs-6 fw-bold">
+        DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING
+      </span>
+      <span class="fst-italic">
+        Jyothy Institute Of Technology, Pipeline Rd, near Ravi Shankar
+        Guruji Ashram, Thathaguni, Karnataka 560082
+      </span>
+      <span class="fst-italic">
+        Accredited by NBA/NAAC with 'A' Grade
+      </span>
+      <div class="row g-0 w-100">
+        <div class="col-md-3 text-center">
+          <span class="fs-6 fw-bold"> Semester: 7</span>
+        </div>
+        <div class="col-md-3 text-center">
+          <span class="fs-6 fw-bold"> Section: {{sec}} </span>
+        </div>
+        <div class="col-md-6 text-center">
+          <span class="fs-6 fw-bold"></span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="col-md-2 border border-secondary d-flex align-items-center justify-content-center"
+    >
+
+<img src="./static/assets/images/vtulogo.jpg" style="width: 200px;">
+</div>
+  </div>
+</div>
+<div class="table-responsive mb-5" id="ttdata11">
+  <table
+    class="table table-bordered border border-dark text-center"
+    id="tab"
+  >
+    <thead>
+      <tr class="align-middle">
+        <th>Time & Day</th>
+        <th>9:15 - 10:10</th>
+        <th>10:10 - 11:05</th>
+        <th>11:05 - 11:20</th>
+        <th>11:20 - 12:15</th>
+        <th>12:15 - 1:10</th>
+        <th>1:10 - 2:00</th>
+        <th>2:00 - 2:50</th>
+        <th>2:50 - 3:40</th>
+        <th>3:40 - 4:30</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="align-middle">
+        <td>Mon</td>
+        <td colspan="1">{{subjectslist[196]}}</td>
+        <td colspan="1">{{subjectslist[197]}}</td>
+        <td
+          rowspan="6"
+          class="fw-bold"
+          style="
+            writing-mode: vertical-lr;
+            transform: rotate(270deg);
+            border: none;
+          "
+        >
+          Tea Break
+        </td>
+        <td colspan="1">{{subjectslist[198]}}</td>
+        <td colspan="1">{{subjectslist[199]}}</td>
+        <td
+          rowspan="5"
+          class="fw-bold"
+          style="
+            writing-mode: vertical-lr;
+            transform: rotate(270deg);
+            border: none;
+          "
+        >
+          Break<br />
+          Lunch
+        </td>
+        <td colspan="3">{{subjectslist[200]}}</td>
+      </tr>
+      <tr class="align-middle">
+        <td>Tue</td>
+        <td colspan="1">{{subjectslist[201]}}</td>
+        <td colspan="1">{{subjectslist[202]}}</td>
+        <td colspan="1">{{subjectslist[203]}}</td>
+        <td colspan="1">{{subjectslist[204]}}</td>
+        <td colspan="3">{{subjectslist[205]}}</td>
+      </tr>
+      <tr class="align-middle">
+        <td>Wed</td>
+
+        <td colspan="1">{{subjectslist[206]}}</td>
+        <td colspan="1">{{subjectslist[207]}}</td>
+        <td colspan="1">{{subjectslist[208]}}</td>
+        <td colspan="1">{{subjectslist[209]}}</td>
+        <td colspan="1">{{subjectslist[210]}}</td>
+        <td colspan="1">{{subjectslist[211]}}</td>
+        <td colspan="1">{{subjectslist[212]}}</td>
+      </tr>
+      <tr class="align-middle">
+        <td>Thu</td>
+        <td colspan="1">{{subjectslist[212]}}</td>
+        <td colspan="1">{{subjectslist[213]}}</td>
+        <td colspan="1">{{subjectslist[214]}}</td>
+        <td colspan="1">{{subjectslist[215]}}</td>
+        <td colspan="3">{{subjectslist[216]}}</td>
+      </tr>
+      <tr class="align-middle">
+        <td>Fri</td>
+        <td colspan="1">{{subjectslist[217]}}</td>
+        <td colspan="1">{{subjectslist[218]}}</td>
+        <td colspan="1">{{subjectslist[219]}}</td>
+        <td colspan="1">{{subjectslist[220]}}</td>
+        <td colspan="3">{{subjectslist[221]}}</td>
+      </tr>
+      <tr class="align-middle">
+        <td>Sat</td>
+        <td colspan="1">{{subjectslist[222]}}</td>
+        <td colspan="1">{{subjectslist[223]}}</td>
+        <td colspan="1">{{subjectslist[224]}}</td>
+        <td colspan="1">{{subjectslist[225]}}</td>
+        <td colspan="1">{{subjectslist[226]}}</td>
+        <td colspan="3"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<table  class="table table-bordered border border-dark text-center">
+<tr class="align-middle">
+                  <th colspan="2">Subject Code</th>
+                  <th colspan="5">Subject Name</th>
+                  <th colspan="4">Faculty Name</th>
+                </tr>
+                <tr class="align-middle">
+                              <td colspan="2">{{secfac[51][0]}}</td>
+                              <td colspan="5">{{secfac[51][1]}}</td>
+                              <td colspan="4">{{secfac[51][2]}}</td>
+                            </tr>
+                <tr class="align-middle">
+                              <td colspan="2">{{secfac[52][0]}}</td>
+                              <td colspan="5">{{secfac[52][1]}}</td>
+                              <td colspan="4">{{secfac[52][2]}}</td>
+                            </tr>
+                <tr class="align-middle">
+                              <td colspan="2">{{secfac[53][0]}}</td>
+                              <td colspan="5">{{secfac[53][1]}}</td>
+                              <td colspan="4">{{secfac[53][2]}}</td>
+                            </tr>
+                <tr class="align-middle">
+                              <td colspan="2">{{secfac[54][0]}}</td>
+                              <td colspan="5">{{secfac[54][1]}}</td>
+                              <td colspan="4">{{secfac[54][2]}}</td>
+                            </tr>
+                <tr class="align-middle">
+                              <td colspan="2">{{secfac[55][0]}}</td>
+                              <td colspan="5">{{secfac[55][1]}}</td>
+                              <td colspan="4">{{secfac[55][2]}}</td>
+                            </tr>
+                <tr class="align-middle">
+                              <td colspan="2">{{secfac[56][0]}}</td>
+                              <td colspan="5">{{secfac[56][1]}}</td>
+                              <td colspan="4">{{secfac[56][2]}}</td>
+                            </tr>
+</table>
+</div>
+
+
+
+		          <div
+          class="container bg-light p-3 shadow my-3 viiia timetable"
+          style="display: block"
+          id="ttdata8"
+        >
+          <div class="row justify-content-center mb-3 g-0">
+            <div class="row justify-content-center text-center">
+              <div
+                class="col-md-2 border border-secondary d-flex align-items-center justify-content-center"
+              >
+			  
+			  <img src="./static/assets/images/clogo.jpg" style="width: 200px;">
+			  </div>
+              <div
+                class="col-md-8 border border-secondary d-flex flex-column align-items-center justify-content-center g-0"
+              >
+                <span class="fs-5 fw-bold">
+                  JYOTHY INSTITUTE OF TECHNOLOGY
+                </span>
+                <span class="fs-6 fw-bold">
+                  DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING
+                </span>
+                <span class="fst-italic">
+                  Jyothy Institute Of Technology, Pipeline Rd, near Ravi Shankar
+                  Guruji Ashram, Thathaguni, Karnataka 560082
+                </span>
+                <span class="fst-italic">
+                  Accredited by NBA/NAAC with 'A' Grade
+                </span>
+                <div class="row g-0 w-100">
+                  <div class="col-md-3 text-center">
+                    <span class="fs-6 fw-bold"> Semester: 8</span>
+                  </div>
+                  <div class="col-md-3 text-center">
+                    <span class="fs-6 fw-bold"> Section: {{sec}} </span>
+                  </div>
+                  <div class="col-md-6 text-center">
+                    <span class="fs-6 fw-bold"></span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="col-md-2 border border-secondary d-flex align-items-center justify-content-center"
+              >
+			  
+			  <img src="./static/assets/images/vtulogo.jpg" style="width: 200px;">
+			  </div>
+            </div>
+          </div>
+          <div class="table-responsive mb-5" id="ttdata11">
+            <table
+              class="table table-bordered border border-dark text-center"
+              id="tab"
+            >
+              <thead>
+                <tr class="align-middle">
+                  <th>Time & Day</th>
+                  <th>9:15 - 10:10</th>
+                  <th>10:10 - 11:05</th>
+                  <th>11:05 - 11:20</th>
+                  <th>11:20 - 12:15</th>
+                  <th>12:15 - 1:10</th>
+                  <th>1:10 - 2:00</th>
+                  <th>2:00 - 2:50</th>
+                  <th>2:50 - 3:40</th>
+                  <th>3:40 - 4:30</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="align-middle">
+                  <td>Mon</td>
+                  <td colspan="1">{{subjectslist[227]}}</td>
+                  <td colspan="1">{{subjectslist[228]}}</td>
+                  <td
+                    rowspan="6"
+                    class="fw-bold"
+                    style="
+                      writing-mode: vertical-lr;
+                      transform: rotate(270deg);
+                      border: none;
+                    "
+                  >
+                    Tea Break
+                  </td>
+                  <td colspan="1">{{subjectslist[229]}}</td>
+                  <td colspan="1">{{subjectslist[230]}}</td>
+                  <td
+                    rowspan="5"
+                    class="fw-bold"
+                    style="
+                      writing-mode: vertical-lr;
+                      transform: rotate(270deg);
+                      border: none;
+                    "
+                  >
+                    Break<br />
+                    Lunch
+                  </td>
+                  <td colspan="3">{{subjectslist[231]}}</td>
+                </tr>
+                <tr class="align-middle">
+                  <td>Tue</td>
+                  <td colspan="1">{{subjectslist[232]}}</td>
+                  <td colspan="1">{{subjectslist[233]}}</td>
+                  <td colspan="1">{{subjectslist[234]}}</td>
+                  <td colspan="1">{{subjectslist[235]}}</td>
+                  <td colspan="3">{{subjectslist[236]}}</td>
+                </tr>
+                <tr class="align-middle">
+                  <td>Wed</td>
+
+                  <td colspan="1">{{subjectslist[237]}}</td>
+                  <td colspan="1">{{subjectslist[238]}}</td>
+                  <td colspan="1">{{subjectslist[239]}}</td>
+                  <td colspan="1">{{subjectslist[240]}}</td>
+                  <td colspan="1">{{subjectslist[241]}}</td>
+                  <td colspan="1">{{subjectslist[242]}}</td>
+                  <td colspan="1">{{subjectslist[243]}}</td>
+                </tr>
+                <tr class="align-middle">
+                  <td>Thu</td>
+                  <td colspan="1">{{subjectslist[244]}}</td>
+                  <td colspan="1">{{subjectslist[245]}}</td>
+                  <td colspan="1">{{subjectslist[246]}}</td>
+                  <td colspan="1">{{subjectslist[247]}}</td>
+                  <td colspan="3">{{subjectslist[248]}}</td>
+                </tr>
+                <tr class="align-middle">
+                  <td>Fri</td>
+                  <td colspan="1">{{subjectslist[249]}}</td>
+                  <td colspan="1">{{subjectslist[250]}}</td>
+                  <td colspan="1">{{subjectslist[251]}}</td>
+                  <td colspan="1">{{subjectslist[252]}}</td>
+                  <td colspan="3">{{subjectslist[253]}}</td>
+                </tr>
+                <tr class="align-middle">
+                  <td>Sat</td>
+                  <td colspan="1">{{subjectslist[254]}}</td>
+                  <td colspan="1">{{subjectslist[255]}}</td>
+                  <td colspan="1">{{subjectslist[256]}}</td>
+                  <td colspan="1">{{subjectslist[257]}}</td>
+                  <td colspan="1">{{subjectslist[258]}}</td>
+                  <td colspan="3"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+		  <table  class="table table-bordered border border-dark text-center">
+  <tr class="align-middle">
+                            <th colspan="2">Subject Code</th>
+                            <th colspan="5">Subject Name</th>
+                            <th colspan="4">Faculty Name</th>
+                          </tr>
+							
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[57][0]}}</td>
+                            <td colspan="5">{{secfac[57][1]}}</td>
+                            <td colspan="4">{{secfac[57][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[58][0]}}</td>
+                            <td colspan="5">{{secfac[58][1]}}</td>
+                            <td colspan="4">{{secfac[58][2]}}</td>
+                          </tr>
+							<tr class="align-middle">
+                            <td colspan="2">{{secfac[59][0]}}</td>
+                            <td colspan="5">{{secfac[59][1]}}</td>
+                            <td colspan="4">{{secfac[59][2]}}</td>
+                          </tr>
+</table>
+</div>
+
+
+  
+		  {%endif %}
+		  <div class="row justify-content-center fw-bold text-center">
+            <div class="col-md-3">
+              [DIVYA C D,SWATHI B H,PRUTHVI PR] TIME TABLE COORDINATOR(S)
+            </div>
+            <div class="col-md-3">Dr. RAVI KUMAR V HOD</div>
+            <div class="col-md-3">Dr. HS DAYANANDALS D DEAN-ACADEMICS</div>
+            <div class="col-md-3">Dr. B SADASHIVE GOWDA PRINCIPAL</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrapper flex-grow-1"></div>
+      <footer class="bg-primary bg-gradient">
+        <p
+          class="font-weight-bold text-center text-white my-auto text-uppercase"
+        >
+          ©
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
+          Time Tables
+        </p>
+      </footer>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.min.js"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      crossorigin="anonymous"
+    ></script>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+      integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      $(function () {
+        $("#tableselect").on("change", function () {
+          var value = $(this).val();
+
+          $(".timetable").fadeOut();
+
+          if (value == "8A") {
+            $(".viiia").fadeIn(1000);
+          } else if (value == "8B") {
+            $(".viiib").fadeIn(1000);
+          }
+        });
+      });
+	  debugger;
+    if('{{sem}}'=='1')
+	  {
+		document.getElementById( 'ttdata4' ).style.display = 'none';
+		document.getElementById( 'ttdata6' ).style.display = 'none';
+		document.getElementById( 'ttdata8' ).style.display = 'none';
+		document.getElementById( 'ttdata2' ).style.display = 'none';
+		document.getElementById( 'ttdata3' ).style.display = 'none';
+		document.getElementById( 'ttdata5' ).style.display = 'none';
+		document.getElementById( 'ttdata7' ).style.display = 'none';
+	  }
+	  if('{{sem}}'=='2')
+	  {
+		document.getElementById( 'ttdata4' ).style.display = 'none';
+		document.getElementById( 'ttdata6' ).style.display = 'none';
+		document.getElementById( 'ttdata8' ).style.display = 'none';
+		document.getElementById( 'ttdata1' ).style.display = 'none';
+		document.getElementById( 'ttdata3' ).style.display = 'none';
+		document.getElementById( 'ttdata5' ).style.display = 'none';
+		document.getElementById( 'ttdata7' ).style.display = 'none';
+	  }
+	  if('{{sem}}'=='3')
+	  {
+		document.getElementById( 'ttdata4' ).style.display = 'none';
+		document.getElementById( 'ttdata6' ).style.display = 'none';
+		document.getElementById( 'ttdata8' ).style.display = 'none';
+		document.getElementById( 'ttdata1' ).style.display = 'none';
+		document.getElementById( 'ttdata2' ).style.display = 'none';
+		document.getElementById( 'ttdata5' ).style.display = 'none';
+		document.getElementById( 'ttdata7' ).style.display = 'none';
+	  }
+	  else if('{{sem}}'=='4')
+	  {
+		document.getElementById( 'ttdata2' ).style.display = 'none';
+		document.getElementById( 'ttdata6' ).style.display = 'none';
+		document.getElementById( 'ttdata8' ).style.display = 'none';
+		document.getElementById( 'ttdata1' ).style.display = 'none';
+		document.getElementById( 'ttdata3' ).style.display = 'none';
+		document.getElementById( 'ttdata5' ).style.display = 'none';
+		document.getElementById( 'ttdata7' ).style.display = 'none';
+	  }
+	  else if('{{sem}}'=='5')
+	  {
+		document.getElementById( 'ttdata2' ).style.display = 'none';
+		document.getElementById( 'ttdata6' ).style.display = 'none';
+		document.getElementById( 'ttdata8' ).style.display = 'none';
+		document.getElementById( 'ttdata1' ).style.display = 'none';
+		document.getElementById( 'ttdata3' ).style.display = 'none';
+		document.getElementById( 'ttdata4' ).style.display = 'none';
+		document.getElementById( 'ttdata7' ).style.display = 'none';
+	  }
+	  else if('{{sem}}'=='6')
+	  {
+		document.getElementById( 'ttdata2' ).style.display = 'none';
+		document.getElementById( 'ttdata4' ).style.display = 'none';
+		document.getElementById( 'ttdata8' ).style.display = 'none';
+    
+		document.getElementById( 'ttdata1' ).style.display = 'none';
+		document.getElementById( 'ttdata3' ).style.display = 'none';
+		document.getElementById( 'ttdata5' ).style.display = 'none';
+		document.getElementById( 'ttdata7' ).style.display = 'none';
+	  }
+	  else if('{{sem}}'=='7')
+	  {
+		document.getElementById( 'ttdata2' ).style.display = 'none';
+		document.getElementById( 'ttdata6' ).style.display = 'none';
+		document.getElementById( 'ttdata8' ).style.display = 'none';
+		document.getElementById( 'ttdata1' ).style.display = 'none';
+		document.getElementById( 'ttdata3' ).style.display = 'none';
+		document.getElementById( 'ttdata4' ).style.display = 'none';
+		document.getElementById( 'ttdata5' ).style.display = 'none';
+	  }
+	  else if('{{sem}}'=='8')
+	  {
+      
+		document.getElementById( 'ttdata1' ).style.display = 'none';
+		document.getElementById( 'ttdata3' ).style.display = 'none';
+		document.getElementById( 'ttdata5' ).style.display = 'none';
+		document.getElementById( 'ttdata7' ).style.display = 'none';
+		document.getElementById( 'ttdata2' ).style.display = 'none';
+		document.getElementById( 'ttdata4' ).style.display = 'none';
+		document.getElementById( 'ttdata6' ).style.display = 'none';
+	  }
+	  else if('{{sem}}'=='2,4,6,8'){
+		document.getElementById( 'ttdata2' ).style.display = 'block';
+		document.getElementById( 'ttdata4' ).style.display = 'block';
+		document.getElementById( 'ttdata6' ).style.display = 'block';
+		document.getElementById( 'ttdata8' ).style.display = 'block';
+
+		document.getElementById( 'ttdata1' ).style.display = 'none';
+		document.getElementById( 'ttdata3' ).style.display = 'none';
+		document.getElementById( 'ttdata5' ).style.display = 'none';
+		document.getElementById( 'ttdata7' ).style.display = 'none';
+	  }
+	  else if('{{sem}}'=='1,3,5,7'){
+		document.getElementById( 'ttdata2' ).style.display = 'none';
+		document.getElementById( 'ttdata4' ).style.display = 'none';
+		document.getElementById( 'ttdata6' ).style.display = 'none';
+		document.getElementById( 'ttdata8' ).style.display = 'none';
+
+		document.getElementById( 'ttdata1' ).style.display = 'block';
+		document.getElementById( 'ttdata3' ).style.display = 'block';
+		document.getElementById( 'ttdata5' ).style.display = 'block';
+		document.getElementById( 'ttdata7' ).style.display = 'block';
+	  }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+20MAT41-Complex Analysis, Probability and Statistical Methods
+20CS42-Design and Analysis of Algorithm
+20CS43-Operating System
+20CS44-Microcontroller and Embedded System
+20CS45-Object Oriented Concepts
+20CS46-Data Communication
+20CSL47-Design and Analysis of Algorithm Laboratory
+20CSL48-Microcontroller and Embedded Systems Laboratory
+20KAK49-Vyavaharika Kannada(Kannada for Communication)
+20KVK49-Aadalitha Kannada(Kannada for Administration)
+20CPC39-Constitution of India,Professional Ethics and Cyber Law

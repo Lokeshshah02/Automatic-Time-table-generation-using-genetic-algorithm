@@ -1,0 +1,9 @@
+18CS54-Automata Theory and Computability
+18CS55-Application Development Using Python
+18CS56-Unix Programming
+18CSL57-Computer Network Laboratory
+18CSL58-DBMS Laboratory with mini Project
+18CIV59-Environmental Studies
+18CS51-Management, Entrepreneurship for IT industry
+18CS52-Computer Network and Security
+18CS53-Database Management System

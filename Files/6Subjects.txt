@@ -1,0 +1,8 @@
+18CS61-System Software & Compilers
+18CS62-Computer Graphics and Visualization
+18CS63-Web Technology and its Application
+18CS641-Data Mining and Data Warehousing
+18CS643-Cloud Computing and its Applications
+18CSMP68-MAD LAB
+18CSL66-SS & OS Lab
+18CSL67-CG Lab

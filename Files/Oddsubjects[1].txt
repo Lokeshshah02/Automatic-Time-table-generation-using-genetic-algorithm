@@ -1,0 +1,34 @@
+18MAT11-Calculus and Linear Algebra-1
+18PHY12-Engineering Physics-1
+18ELE13-Basic Electrical Engineering-1
+18CIV14-Elements of Civil Engineering and Mechanics-1
+18EGDL15-Engineering Graphics-1
+18PHYL16-Engineering Physics Laboratory-1
+18ELE17-Basic Electrical Engineering Laboratory-1
+18EGHI18-Technical English-1-1
+18MAT31-Transform Calculus, Fourier Series And Numerical Techniques-3
+18CS32-Data Structures and Applications-3
+18CS33-Analog and Digital Electronics-3
+18CS34-Computer Organization-3
+18CS35-Software Engineering-3
+18CS36-Discrete Mathematical Structures-3
+18CSL37-Analog and Digital Electronics Laboratory-3
+18CSL38-Data Structures Laboratory-3
+18KAK39-Vyavaharika Kannada-3
+18CPC39-Constitution of India,Professional Ethics and Cyber Law-3
+18MATDIP31-Complex Analysis, Probability, and Statistical Methods And Numerical Techniques-3
+18CS51-Management, Entrepreneurship for IT industry-5
+18CS52-Computer Networks and Security-5
+18CS53-Database Management System-5
+18CS54-Automata Theory and Computability-5
+18CS55-Application Development using Python-5 
+18CS56-Unix Programming-5
+18CSL57-Computer Network Laboratory-5
+18CSL58-DBMS Laboratory with mini project-5
+18CIV59-Environmental Studies-5
+18CS71-Artificial Intelligence and Machine Learning-7
+18CS72-Big Data Analytics-7
+18CS734-User Interface Design-7
+18CS744-Cryptography-7
+18CS76-Artificial Intelligence and Machine Learning Laboratory-7
+18CSP77-Project Work Phase –7

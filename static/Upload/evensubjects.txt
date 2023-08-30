@@ -1,0 +1,28 @@
+18CS54-Automata Theory and Computability-2
+18CS55-Application Development Using Python-2
+18CS56-Unix Programming-2
+18CS53-Database Management System-2
+18CS52-Computer Network and Security-2
+18CIV59-Environmental Studies-2
+18CS51-Management, Entrepreneurship for IT industry-2
+18CSL58-DBMS Laboratory with mini Project-2
+18CSL57-Computer Network Laboratory-2
+21CS42-Design and Analysis of Algorithms-4
+21CS43-Microcontroller and Embedded Systems-4
+21CS44-Operating Systems-4
+21CS481-Web Programming-4
+21CSL48-Python theory-4
+21CSL49-Java theory-4
+21CSL47-DAA Lab-4
+21CSL46-Python Programming Laboratory-4
+18CS61-System Software & Compilers-6
+18CS62-Computer Graphics and Visualization-6
+18CS63-Web Technology and its Application-6
+18CS641-Data Mining and Data Warehousing-6
+18CS643-Cloud Computing and its Applications-6
+18CSMP68-MAD-6
+18CSL66-SS & OS Lab-6
+18CSL67-CG Lab-6
+18CS81-Internet of Things-8
+18CS822-Storage Area Networks-8
+18CS823-NoSQL Database-8

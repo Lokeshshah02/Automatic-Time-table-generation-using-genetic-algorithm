@@ -1,0 +1,9 @@
+18CS51-Shashank,Usha,Divya
+18CS52-Meghana,Tejaswini,Chandana
+18CS53-Chaya,Shraddha,Bhavya
+18CS54-Ravi,Pooja,Janhavi
+18CS55-Aditya,Sreenivas,Paramesha
+18CS56-Ambika,Rakesh,Harshitha
+18CSL57-Gururaj, Janhavi,Ravi,Pavankumar
+18CSL58-Ambika,Anusha,Radhika,Harshitha
+18CIV59-Ashwini,Ashwini,Ashwini

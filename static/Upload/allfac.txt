@@ -1,0 +1,60 @@
+18MAT11-Shashank,Usha,Divya-1
+18PHY12-Meghana-1
+18ELE13-Chaya,Shraddha,Bhavya-1
+18CIV14-Ravi,Pooja-1
+18EGDL15-Aditya,Sreenivas,Paramesha-1
+18PHYL16-Ambika-1
+18ELE17-Gururaj-1
+18EGHI18-Ambika,Anusha,Radhika-1
+18CS51-Shashank,Usha,Divya-2
+18CS52-Meghana-2
+18CS53-Chaya,Shraddha,Bhavya-2
+18CS54-Ravi,Pooja-2
+18CS55-Aditya,Sreenivas,Paramesha-2
+18CS56-Ambika-2
+18CSL57-Gururaj-2
+18CSL58-Ambika,Anusha,Radhika-2
+18CIV59-Ashwini-2
+18MAT31-Ashwini-3
+18CS32-Swathi K-3
+18CS33-Basavesh D-3
+18CS34-Namratha B S-3
+18CS35-Madhu,Nikitha S-3
+18CS36-Namratha B S,Swathi K-3
+18CSL37-Swathi K,Basavesh D-3
+18CSL38-Naveen N-3
+18KAK39-Radha G-3
+21CS42-Dr. Swathi K-4
+21CS43-Mr. Basavesh D-4
+21CS44-Ms. Namratha B S-4
+21CSL46-Mrs. Nikitha S-4
+21CSL47-Mrs. Nikitha S-4
+21CSL48-Dr. Swathi K-4
+21CSL49-Ms. Namratha,Mrs. Sunitha B-4
+18CS51-Roopa Onkar Deshpande-5
+18CS52-Manoj K-5
+18CS53-Chidananda Murthy P-5
+18CS54-Harish H S-5
+18CS55-Saravana S-5 
+18CS56-Nagaraj V-5
+18CSL57-Manoj K,Basavesh D-5
+18CSL58-Nikitha s-5
+18CIV59-Patil s-5
+18CS61-Mr. Naveen N N-6
+18CS62-Mrs. Rekha N-6
+18CS63-Mrs. Annie Sujith-6
+18CS641-Mrs. Roopa Onkar Deshpande-6
+18CS643-Dr. Chidananda Murthy P-6
+18CSMP68-Mrs. Roopa-6
+18CSMP68-Mrs. Roopa Onkar Deshpande-6
+18CSL66-Mrs. Annie Sujith-6
+18CSL67-Mrs. Rekha N-6
+18CS71-Vallabh M-7
+18CS72-Srinidhi-7
+18CS734-Nayana G Bhat-7
+18CS744-Manoj K-7
+18CS76-Vallabh M-7
+18CSP77-Manoj K,Basavesh D-7
+18CS81-Mrs. Nayana G Bhat-8
+18CS822-Dr. Manoj Kumar M-8
+18CS823-Mrs. Prithvi B S-8

@@ -1,0 +1,60 @@
+18MAT11-Calculus and Linear Algebra-1
+18PHY12-Engineering Physics-1
+18ELE13-Basic Electrical Engineering-1
+18CIV14-Elements of Civil Engineering and Mechanics-1
+18EGDL15-Engineering Graphics-1
+18EGHI18-Technical English-1
+18PHYL16-Engineering Physics Laboratory-1
+18ELE17-Basic Electrical Engineering Laboratory-1
+18CS54-Automata Theory and Computability-2
+18CS55-Application Development Using Python-2
+18CS56-Unix Programming-2
+18CS53-Database Management System-2
+18CS52-Computer Network and Security-2
+18CIV59-Environmental Studies-2
+18CS51-Management, Entrepreneurship for IT industry-2
+18CSL58-DBMS Laboratory with mini Project-2
+18CSL57-Computer Network Laboratory-2
+18MAT31-Transform Calculus, Fourier Series And Numerical Techniques-3
+18CS32-Data Structures and Applications-3
+18CS33-Analog and Digital Electronics-3
+18CS34-Computer Organization-3
+18CS35-Software Engineering-3
+18CS36-Discrete Mathematical Structures-3
+18KAK39-Vyavaharika Kannada-3
+18CSL37-Analog and Digital Electronics Laboratory-3
+18CSL38-Data Structures Laboratory-3
+21CS42-Design and Analysis of Algorithms-4
+21CS43-Microcontroller and Embedded Systems-4
+21CS44-Operating Systems-4
+21CS481-Web Programming-4
+21CSL48-Python theory-4
+21CSL49-Java theory-4
+21CSL47-DAA Lab-4
+21CSL46-Python Programming Laboratory-4
+18CS51-Management, Entrepreneurship for IT industry-5
+18CS52-Computer Networks and Security-5
+18CS53-Database Management System-5
+18CS54-Automata Theory and Computability-5
+18CS55-Application Development using Python-5 
+18CS56-Unix Programming-5
+18CSL57-Computer Network Laboratory-5
+18CSL58-DBMS Laboratory with mini project-5
+18CIV59-Environmental Studies-5
+18CS61-System Software & Compilers-6
+18CS62-Computer Graphics and Visualization-6
+18CS63-Web Technology and its Application-6
+18CS641-Data Mining and Data Warehousing-6
+18CS643-Cloud Computing and its Applications-6
+18CSMP68-MAD-6
+18CSL66-SS & OS Lab-6
+18CSL67-CG Lab-6
+18CS71-Artificial Intelligence and Machine Learning-7
+18CS72-Big Data Analytics-7
+18CS734-User Interface Design-7
+18CS744-Cryptography-7
+18CS76-Artificial Intelligence and Machine Learning Laboratory-7
+18CSP77-Project Work Phase –7
+18CS81-Internet of Things-8
+18CS822-Storage Area Networks-8
+18CS823-NoSQL Database-8

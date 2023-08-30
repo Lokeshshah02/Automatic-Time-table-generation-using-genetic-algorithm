@@ -1,0 +1,8 @@
+21CS42-Design and Analysis of Algorithms
+21CS43-Microcontroller and Embedded Systems
+21CS44-Operating Systems
+21CSL46-Python Programming Laboratory
+21CS481-Web Programming
+21CSL47-DAA Lab
+21CSL48-MCES Lab
+21CSL49-Python Lab
